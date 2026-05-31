@@ -34,3 +34,10 @@ def exibir_relatorio_de_classificacao(y_test, y_pred, iris):
 # Ajuste de valores iniciais necessários para as análises com Iris
 def preparar_iris(iris):
     return iris.data, iris.target, iris.feature_names, iris.target_names
+
+
+# Exibe o texto informando o melhor valor de k usado pelo algoritmo KNN
+def exibir_melhor_resultado_do_knn(melhor_k, melhor_f1):
+    print("=" * 50)
+    print(f"CONCLUSÃO: O melhor desempenho foi com K = {melhor_k} (F1-Score: {melhor_f1:.4f})")
+    print("=" * 50)
