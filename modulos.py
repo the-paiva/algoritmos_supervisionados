@@ -36,6 +36,15 @@ def preparar_iris(iris):
     return iris.data, iris.target, iris.feature_names, iris.target_names
 
 
+# Verifica se o valor atual de k tem um desempenho maior do que o melhor valor de k
+# até então, e o atualiza caso isso aconteça.
+def atualizar_melhor_desempenho_k(f1_knn, k, melhor_f1, melhor_k):
+    if f1_knn > melhor_f1:
+        return f1_knn, k
+    
+    return melhor_f1, melhor_k
+
+
 # Exibe o texto informando o melhor valor de k usado pelo algoritmo KNN
 def exibir_melhor_resultado_do_knn(melhor_k, melhor_f1):
     print("=" * 50)
