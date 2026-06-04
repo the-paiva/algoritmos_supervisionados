@@ -100,3 +100,11 @@ def exibir_grafico_comparativo(valores_k, resultados_acuracia, nome_da_base):
 # Ajuste de valores iniciais necessários para as análises com Iris
 def preparar_iris(iris):
     return iris.data, iris.target, iris.feature_names, iris.target_names
+
+
+# ================================== FUNÇÕES DO BREAST CANCER ==================================
+
+
+# Ajuste de valores iniciais necessários para as análises com Breast Cancer
+def preparar_breast_cancer(breast_cancer):
+    return breast_cancer.data, breast_cancer.target, breast_cancer.feature_names, breast_cancer.target_names
