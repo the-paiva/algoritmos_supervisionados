@@ -3,6 +3,7 @@
 
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, classification_report
 from sklearn.neighbors import KNeighborsClassifier
+import matplotlib.pyplot as plt
 
 
 # ================================== FUNÇÕES GERAIS ==================================
@@ -65,6 +66,18 @@ def treinar_k(k, resultados_acuracia, X_train, y_train, X_test, y_test):
     resultados_acuracia.append(acuracia_knn)
 
     return acuracia_knn, precisao_knn, revocacao_knn, f1_knn
+
+
+# Gera o gráfico comparativo dos valores de K
+def exibir_grafico_comparativo(valores_k, resultados_acuracia, nome_da_base):
+    plt.figure(figsize=(10, 6))
+    plt.plot(valores_k, resultados_acuracia, marker='o', linestyle='-', color='purple', linewidth=2, markersize=8)
+    plt.title(f'Impacto do Valor de K na Acurácia do KNN (Base {nome_da_base})', fontsize=14)
+    plt.xlabel('Número de Vizinhos (K)', fontsize=12)
+    plt.ylabel('Acurácia', fontsize=12)
+    plt.xticks(valores_k)
+    plt.grid(True, linestyle='--', alpha=0.7)
+    plt.show()
 
 
 # ================================== FUNÇÕES DO IRIS ==================================
