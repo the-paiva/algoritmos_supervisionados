@@ -4,7 +4,7 @@
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, classification_report
 from sklearn.neighbors import KNeighborsClassifier
 import matplotlib.pyplot as plt
-from sklearn.tree import plot_tree
+from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.naive_bayes import GaussianNB
 
 
@@ -93,6 +93,22 @@ def exibir_grafico_comparativo(valores_k, resultados_acuracia, nome_da_base):
     plt.xticks(valores_k)
     plt.grid(True, linestyle='--', alpha=0.7)
     plt.show()
+
+
+# Realiza todo o processo de preparação e avaliação de um modelo com Árvore de Decisão
+def executar_arvore_de_decisao(X_train, y_train, X_test, y_test):
+    # Limitando a profundidade para evitar overfit e gerar regras legíveis
+    clf = DecisionTreeClassifier(max_depth=3, random_state=13)
+    clf.fit(X_train, y_train)
+
+    # Predição
+    y_pred_arvore_de_decisao = clf.predict(X_test)
+
+    # Avaliação das métricas usando Árvore de Decisão com Iris
+    (acuracia_arvore_decisao, precisao_arvore_decisao,
+    revocacao_arvore_decisao, f1_arvore_decisao) = avaliar_modelo(y_test, y_pred_arvore_de_decisao)
+
+    return clf, y_pred_arvore_de_decisao, acuracia_arvore_decisao, precisao_arvore_decisao, revocacao_arvore_decisao, f1_arvore_decisao
 
 
 # Realiza todo o processo de preparação e avaliação de um modelo com Naive Bayes
