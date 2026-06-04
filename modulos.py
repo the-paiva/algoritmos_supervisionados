@@ -4,6 +4,7 @@
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, classification_report
 from sklearn.neighbors import KNeighborsClassifier
 import matplotlib.pyplot as plt
+from sklearn.tree import plot_tree
 
 
 # ================================== FUNÇÕES GERAIS ==================================
@@ -66,6 +67,19 @@ def treinar_k(k, resultados_acuracia, X_train, y_train, X_test, y_test):
     resultados_acuracia.append(acuracia_knn)
 
     return acuracia_knn, precisao_knn, revocacao_knn, f1_knn
+
+
+# Gera o gráfico de uma árvore de decisão
+def gerar_grafico_da_arvore_de_decisao(clf, feature_names, target_names, nome_da_base):
+    plt.figure(figsize=(12, 8))
+
+    plot_tree(
+        clf, feature_names=feature_names, class_names=target_names,
+        filled=True, rounded=True,
+    )
+
+    plt.title(f'Árvore de Decisão - Base {nome_da_base}')
+    plt.show()
 
 
 # Gera o gráfico comparativo dos valores de K
