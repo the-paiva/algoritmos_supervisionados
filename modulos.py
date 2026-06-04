@@ -5,6 +5,7 @@ from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_sc
 from sklearn.neighbors import KNeighborsClassifier
 import matplotlib.pyplot as plt
 from sklearn.tree import plot_tree
+from sklearn.naive_bayes import GaussianNB
 
 
 # ================================== FUNÇÕES GERAIS ==================================
@@ -92,6 +93,23 @@ def exibir_grafico_comparativo(valores_k, resultados_acuracia, nome_da_base):
     plt.xticks(valores_k)
     plt.grid(True, linestyle='--', alpha=0.7)
     plt.show()
+
+
+# Realiza todo o processo de preparação e avaliação de um modelo com Naive Bayes
+def executar_naive_bayes(X_train, y_train, X_test, y_test):
+    # Aplicação do algoritmo Naive Bayes
+    gnb = GaussianNB()
+    gnb.fit(X_train, y_train)
+
+    # Predição
+    y_pred_gnb = gnb.predict(X_test)
+
+    # Avaliação das métricas usando Naive Bayes com Breast Cancer
+    (acuracia_gaussian, precisao_gaussian,
+    revocacao_gaussian, f1_gaussian) = avaliar_modelo(y_test, y_pred_gnb)
+
+    return y_pred_gnb, acuracia_gaussian, precisao_gaussian, revocacao_gaussian, f1_gaussian
+
 
 
 # ================================== FUNÇÕES DO IRIS ==================================
