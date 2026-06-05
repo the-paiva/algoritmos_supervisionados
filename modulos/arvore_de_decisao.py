@@ -23,6 +23,15 @@ def executar_arvore_de_decisao(X_train, y_train, X_test, y_test):
     return clf, y_pred_arvore_de_decisao, acuracia_arvore_decisao, precisao_arvore_decisao, revocacao_arvore_decisao, f1_arvore_decisao
 
 
+# Exibe as regras geradas pela Árvore de Decisãot 
+def exibir_regras_da_arvore_de_decisao(clf, feature_names):
+    print("\nREGRAS DA ÁRVORE DE DECISÃO (FORMATO TEXTO):")
+    regras_texto = export_text(clf, feature_names=feature_names)
+    print(regras_texto)
+    print("=" * 50)
+
+
+
 # Gera o gráfico de uma árvore de decisão
 def gerar_grafico_da_arvore_de_decisao(clf, feature_names, target_names, nome_da_base):
     plt.figure(figsize=(12, 8))
