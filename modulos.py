@@ -127,6 +127,16 @@ def executar_naive_bayes(X_train, y_train, X_test, y_test):
     return y_pred_gnb, acuracia_gaussian, precisao_gaussian, revocacao_gaussian, f1_gaussian
 
 
+# Realiza todo o processo de preparação e avaliação de um modelo com Árvore de Decisão
+def preparar_knn():
+    valores_k = [1, 3, 5, 7, 9, 11]
+    resultados_acuracia = []
+    melhor_k = 1
+    melhor_f1 = 0
+
+    return valores_k, resultados_acuracia, melhor_k, melhor_f1
+
+
 
 # ================================== FUNÇÕES DO IRIS ==================================
 
