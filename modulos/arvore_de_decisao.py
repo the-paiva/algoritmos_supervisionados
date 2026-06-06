@@ -31,7 +31,6 @@ def exibir_regras_da_arvore_de_decisao(clf, feature_names):
     print("=" * 50)
 
 
-
 # Gera o gráfico de uma árvore de decisão
 def gerar_grafico_da_arvore_de_decisao(clf, feature_names, target_names, nome_da_base):
     plt.figure(figsize=(12, 8))
