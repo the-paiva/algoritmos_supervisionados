@@ -43,3 +43,8 @@ def preparar_iris(iris):
 # Ajuste de valores iniciais necessários para as análises com Breast Cancer
 def preparar_breast_cancer(breast_cancer):
     return breast_cancer.data, breast_cancer.target, breast_cancer.feature_names, breast_cancer.target_names
+
+
+# Ajuste de valores iniciais necessários para as análises com Wine
+def preparar_wine(wine):
+    return wine.data, wine.target, wine.feature_names, wine.target_names
