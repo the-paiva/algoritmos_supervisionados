@@ -3,6 +3,7 @@
 
 # Imports necessários
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, classification_report
+from sklearn.preprocessing import StandardScaler
 import pandas as pd
 import numpy as np
 
@@ -35,6 +36,12 @@ def exibir_relatorio_de_classificacao(y_test, y_pred, target_names):
     print("=" * 20, "RELATÓRIO DE CLASSIFICAÇÃO", "=" * 20)
     print(classification_report(y_test, y_pred, target_names=target_names))
     print("=" * 69)
+
+
+# Padroniza um conjunto de dados de treino para uma escala única
+def padronizar_dados_de_treino(X_train, X_test):
+    scaler = StandardScaler()
+    return scaler.fit_transform(X_train), scaler.transform(X_test)
 
 
 # Ajusta os valores iniciais necessários para as análises com Iris
