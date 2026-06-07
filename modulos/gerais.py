@@ -48,3 +48,8 @@ def preparar_breast_cancer(breast_cancer):
 # Ajuste de valores iniciais necessários para as análises com Wine
 def preparar_wine(wine):
     return wine.data, wine.target, wine.feature_names, wine.target_names
+
+
+# Ajuste de valores iniciais necessários para as análises com Digits
+def preparar_digits(digits):
+    return digits.data, digits.target, digits.feature_names, digits.target_names
