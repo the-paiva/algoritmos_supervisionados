@@ -4,6 +4,8 @@
 # Imports necessários
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, classification_report
 from sklearn.preprocessing import StandardScaler
+from sklearn.datasets import fetch_20newsgroups
+from sklearn.feature_extraction.text import TfidfVectorizer
 import pandas as pd
 import numpy as np
 
@@ -92,3 +94,28 @@ def preparar_heart_disease():
     target_names = ['saudavel', 'com_doenca']
 
     return X, y, feature_names, target_names
+
+
+# Carrega a base 20newsgroups, realizando também seu treinamento e ajustando os valores necessários
+# para análises posteriores
+def preparar_newsgroup():
+    # Escolha das categorias dos textos que serão utilizados
+    categorias = ['misc.forsale', 'talk.politics.misc', 'comp.graphics', 'sci.med']
+
+    # Treinamento e teste com semente fixa de reprodutibilidade
+    treino = fetch_20newsgroups(subset='train', categories=categorias, random_state=13)
+    teste = fetch_20newsgroups(subset='test', categories=categorias, random_state=13)
+    y_train = treino.target
+    y_test = teste.target
+    target_names = treino.target_names
+
+    # Limita a tabela às 3000 palavras mais importantes e elimina palavras de ruído como 'the',
+    # 'and', 'that', etc.
+    vetorizador = TfidfVectorizer(max_features=3000, stop_words='english')
+    
+    # Aprendizado e transformação de vocabulário 
+    X_train_tfidf = vetorizador.fit_transform(treino.data)
+    X_test_tfidf = vetorizador.transform(teste.data)
+    feature_names = vetorizador.get_feature_names_out()
+
+    return X_train_tfidf.toarray(), X_test_tfidf.toarray(), y_train, y_test, feature_names, target_names
