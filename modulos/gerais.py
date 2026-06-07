@@ -29,9 +29,9 @@ def exibir_resultado(acuracia, precisao, revocacao, f1, nome_do_algoritmo):
 
 
 # Exibe um relatório sobre cada classe encontrada pelo algoritmo da árvore de decisão
-def exibir_relatorio_de_classificacao(y_test, y_pred, iris):
+def exibir_relatorio_de_classificacao(y_test, y_pred, base):
     print("=" * 20, "RELATÓRIO DE CLASSIFICAÇÃO", "=" * 20)
-    print(classification_report(y_test, y_pred, target_names=iris.target_names))
+    print(classification_report(y_test, y_pred, target_names=base.target_names))
     print("=" * 69)
 
 
