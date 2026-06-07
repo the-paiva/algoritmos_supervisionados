@@ -31,11 +31,9 @@ def exibir_resultado(acuracia, precisao, revocacao, f1, nome_do_algoritmo):
 
 
 # Exibe um relatório sobre cada classe encontrada pelo algoritmo da árvore de decisão
-def exibir_relatorio_de_classificacao(y_test, y_pred, base):
-    nomes_classes = [str(nome) for nome in base.target_names]
-
+def exibir_relatorio_de_classificacao(y_test, y_pred, target_names):
     print("=" * 20, "RELATÓRIO DE CLASSIFICAÇÃO", "=" * 20)
-    print(classification_report(y_test, y_pred, target_names=nomes_classes))
+    print(classification_report(y_test, y_pred, target_names=target_names))
     print("=" * 69)
 
 
@@ -86,4 +84,4 @@ def preparar_heart_disease():
     feature_names = X.columns.tolist()
     target_names = ['saudavel', 'com_doenca']
 
-    return feature_names, target_names
+    return X, y, feature_names, target_names
