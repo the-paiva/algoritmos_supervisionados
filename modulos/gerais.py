@@ -22,14 +22,14 @@ def avaliar_modelo(y_test, y_pred):
 
 # Exibe os resultados encontrados nas métricas de avaliação
 def exibir_resultado(acuracia, precisao, revocacao, f1, nome_do_algoritmo):
-    print("=" * 50)
+    print("=" * 100)
     print(f"MÉTRICAS DE AVALIAÇÃO - {nome_do_algoritmo}")
-    print("=" * 50)
+    print("=" * 100)
     print(f"Acurácia:  {acuracia:.4f}")
     print(f"Precisão:  {precisao:.4f}")
     print(f"Revocação: {revocacao:.4f}")
     print(f"F1-Score:  {f1:.4f}")
-    print("=" * 50)
+    print("=" * 100)
 
 
 # Exibe um relatório sobre cada classe encontrada pelo algoritmo da árvore de decisão

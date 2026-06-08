@@ -2,7 +2,7 @@
 
 
 # Imports necessários
-from modulos.gerais import avaliar_modelo
+from modulos.gerais import avaliar_modelo, exibir_resultado, exibir_relatorio_de_classificacao
 from sklearn.neighbors import KNeighborsClassifier
 import matplotlib.pyplot as plt
 
@@ -39,11 +39,18 @@ def atualizar_melhor_desempenho_k(f1_knn, k, melhor_f1, melhor_k):
     return melhor_f1, melhor_k
 
 
+# Função que agrega os resultados exibidos no loop principal do KNN
+def exibir_resultados_do_knn(acuracia_knn, precisao_knn, revocacao_knn, f1_knn, k, y_test, y_pred_knn, target_names):
+    exibir_resultado( acuracia_knn, precisao_knn, revocacao_knn, f1_knn, f"KNN (K = {k})")
+    exibir_relatorio_de_classificacao(y_test, y_pred_knn, target_names, f'BASE IRIS (KNN COM K = {k})')
+    print('\n')
+
+
 # Exibe o texto informando o melhor valor de k usado pelo algoritmo KNN
 def exibir_melhor_resultado_do_knn(melhor_k, melhor_f1):
-    print("=" * 50)
+    print("=" * 100)
     print(f"CONCLUSÃO: O melhor desempenho foi com K = {melhor_k} (F1-Score: {melhor_f1:.4f})")
-    print("=" * 50)
+    print("=" * 100)
 
 
 # Gera o gráfico comparativo dos valores de K
