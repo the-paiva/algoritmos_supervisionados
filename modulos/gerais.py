@@ -8,6 +8,7 @@ from sklearn.datasets import fetch_20newsgroups
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pandas as pd
 import numpy as np
+import ssl
 
 
 # Avalia um modelo de acordo com as métricas exigidas
