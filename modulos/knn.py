@@ -27,7 +27,7 @@ def treinar_k(k, resultados_acuracia, X_train, y_train, X_test, y_test):
     # Guardamos a acurácia para plotar o gráfico depois
     resultados_acuracia.append(acuracia_knn)
 
-    return acuracia_knn, precisao_knn, revocacao_knn, f1_knn
+    return y_pred_knn, acuracia_knn, precisao_knn, revocacao_knn, f1_knn
 
 
 # Verifica se o valor atual de k tem um desempenho maior do que o melhor valor de k

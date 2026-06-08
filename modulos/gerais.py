@@ -35,10 +35,10 @@ def exibir_resultado(acuracia, precisao, revocacao, f1, nome_do_algoritmo):
 
 
 # Exibe um relatório sobre cada classe encontrada pelo algoritmo da árvore de decisão
-def exibir_relatorio_de_classificacao(y_test, y_pred, target_names):
-    print("=" * 20, "RELATÓRIO DE CLASSIFICAÇÃO", "=" * 20)
+def exibir_relatorio_de_classificacao(y_test, y_pred, target_names, descricao):
+    print("=" * 20, f"RELATÓRIO DE CLASSIFICAÇÃO - {descricao}", "=" * 20)
     print(classification_report(y_test, y_pred, target_names=target_names))
-    print("=" * 69)
+    print("=" * 80, '\n')
 
 
 # Padroniza um conjunto de dados de treino para uma escala única
