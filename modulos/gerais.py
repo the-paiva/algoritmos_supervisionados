@@ -8,7 +8,6 @@ from sklearn.datasets import fetch_20newsgroups
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pandas as pd
 import numpy as np
-import ssl
 
 
 # Avalia um modelo de acordo com as métricas exigidas
@@ -31,14 +30,13 @@ def exibir_resultado(acuracia, precisao, revocacao, f1, nome_do_algoritmo):
     print(f"Revocação: {revocacao:.4f}")
     print(f"F1-Score:  {f1:.4f}")
     print("=" * 50)
-    print("\n")
 
 
 # Exibe um relatório sobre cada classe encontrada pelo algoritmo da árvore de decisão
 def exibir_relatorio_de_classificacao(y_test, y_pred, target_names, descricao):
     print("=" * 20, f"RELATÓRIO DE CLASSIFICAÇÃO - {descricao}", "=" * 20)
     print(classification_report(y_test, y_pred, target_names=target_names))
-    print("=" * 80, '\n')
+    print("=" * 100)
 
 
 # Padroniza um conjunto de dados de treino para uma escala única
